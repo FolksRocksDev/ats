@@ -256,7 +256,7 @@ class DataGrid
                 
                 if ($index = 'exportIDs')
                 {
-                   $parameters['exportIDs'] = json_decode(urldecode($parameters['exportIDs']), true);
+                    $parameters['exportIDs'] = unserialize((urldecode($parameters['exportIDs'])));
                 }
             }
         }
@@ -298,7 +298,7 @@ class DataGrid
         }
         
         $indentifier = $_REQUEST['i'];
-        $parameters = json_decode($_REQUEST['p'], true);
+        $parameters = unserialize($_REQUEST['p']);
 
         return self::get($indentifier, $parameters);
     }
